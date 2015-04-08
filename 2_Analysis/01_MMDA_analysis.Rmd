@@ -1,0 +1,70 @@
+---
+title: "MMDA analysis"
+author: "Eric Z. Chen"
+date: "`r format(Sys.time(), '%Y %B %d ,  %I:%M %p')`"
+output:
+  html_document:
+    fig_width: 8
+    number_sections: yes
+    toc: yes
+---
+
+
+```{r note, evel=FALSE,include=FALSE,cache=FALSE,echo=FALSE}
+#### rewrite the plot_MDS function
+######################################
+#### taxa: significant heatmap
+#### fungi change aross time points
+#### Heatmap: logistic regression coefficent. taxa
+
+#### The total reads table is not correct
+#### 6004-02 -> 6004-03
+#### 6004-03 -> 6004-04
+```
+
+
+
+
+
+```{r load_packages, echo=FALSE,include=FALSE,cache=FALSE,eval=FALSE}
+####### install necessary packages
+packages <- c(#'phyloseq',
+              'geiger',
+              'picante','ape','arm','knitr','fpc',
+              'pheatmap','reshape2',
+              'randomForest','ggplot2','lazyeval',
+              'vegan','tidyr','dplyr')
+for (pk in packages){
+  if (!require(pk,character.only = TRUE)){
+    install.packages(pk,dep=TRUE)
+  }
+  require(pk,character.only = TRUE,quietly=TRUE)
+}
+#####!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!##########
+### dplyr::select() conflicts with MASS::select()
+### do not load dply!
+#####!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!##########
+#library("devtools")
+#install_github("phyloseq", "joey711")
+
+
+#####################################################
+#### load the package instead of sourcing the code in the future  
+source('/home/eric/14_Metagenomic_toolkit/metagenomic_toolkit/R/merge_two_tables.R')
+source('/home/eric/14_Metagenomic_toolkit/metagenomic_toolkit/R/subset_data_by_sample_info.R')
+source('/home/eric/14_Metagenomic_toolkit/metagenomic_toolkit/R/calculate_distance.R')
+source('/home/eric/14_Metagenomic_toolkit/metagenomic_toolkit/R/find_best_clustering.R')
+source('/home/eric/14_Metagenomic_toolkit/metagenomic_toolkit/R/wilcox_test.R')
+source('/home/eric/14_Metagenomic_toolkit/metagenomic_toolkit/R/random_forest.R')
+source('/home/eric/14_Metagenomic_toolkit/metagenomic_toolkit/R/PERMANOVA_analysis.R')
+source('/home/eric/14_Metagenomic_toolkit/metagenomic_toolkit/R/linear_regression_with_permutation.R')
+
+
+####################################################
+opts_chunk$set(#fig.path = '~/3_Results/',
+  root.dir = '../3_Results/',
+  progress = TRUE, verbose = TRUE,
+  warning=FALSE, message=FALSE,echo=TRUE)
+
+
+```
