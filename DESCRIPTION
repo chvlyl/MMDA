@@ -1,0 +1,11 @@
+Package: MADA
+Type: Package
+Title: Model-based multi-sample approach for metagenomic differential abundance
+    analysis
+Version: 1.0
+Date: 2014-04-23
+Author: Eric Zhang Chen
+Maintainer: Eric Zhang Chen <chvlyl@gmail.com>
+Description: Model-based multi-sample approach for metagenomic differential
+    abundance analysis
+License: MIT
